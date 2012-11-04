@@ -11,11 +11,9 @@ def enumerate_with_etr(iterable, length=None, start=0, stop=None):
         length = length - start - (length - stop)
     t1 = time.time()
     for i, item in enumerate(iterable[start:stop + 1]):
-        cycle_t1 = time.time()
         yield i, item
-        cycle_t2 = time.time()
-        cycle_time = cycle_t2 - cycle_t1
-        total_time_elapsed = cycle_t2 - t1
+        t2 = time.time()
+        total_time_elapsed = t2 - t1
         cycle_count = i + 1
         avg_cycle_time = total_time_elapsed / cycle_count 
         cycles_remaining = length - cycle_count
